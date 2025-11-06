@@ -6,6 +6,7 @@ class Solution {
                 if(arr[i][j]==arr[j][i]){
                     answer = 1;
                 }else{
+                    // 다른걸 하나라도 발견한다면 바로 0 리턴
                     return answer = 0;
                 }
             }
