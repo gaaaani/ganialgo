@@ -1,25 +1,14 @@
 import java.util.*;
 class Solution {
     public String[] solution(String myStr) {
-        myStr = myStr.replace("a"," ");
-        myStr = myStr.replace("b"," ");
-        myStr = myStr.replace("c"," ");
-        String[] answer = myStr.split(" ");
-        
-        List<String> newStr = new ArrayList<>();
-        for(int i = 0; i<answer.length; i++){
-            if(!answer[i].equals("")){
-                newStr.add(answer[i]);
-            }
-        }
-        if(newStr.isEmpty()){
-            return new String[]{"EMPTY"};
-        }
-        
-        String[] fin = new String[newStr.size()];
-        for(int i =0; i<fin.length; i++){
-            fin[i] =  newStr.get(i);
-        }
-        return fin;
+    String[] arr = myStr.split("[abc]+"); // a, b, c 로 나누기
+    List<String> list = new ArrayList<>();
+    
+    for (String s : arr) {
+        if (!s.isEmpty()) list.add(s); // 빈 문자열 제거
     }
+    
+    return list.isEmpty() ? new String[]{"EMPTY"} : list.toArray(new String[0]);
+    }
+
 }
